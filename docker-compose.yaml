@@ -1,0 +1,13 @@
+version: "3.8"
+services: 
+  python:
+    image: python:3.8
+    working_dir: /Code
+    volumes: 
+      # - /mnt/c/Users/jones/Code/ScrapeCraigslist:/Code
+      - $PWD:/Code
+
+
+    # Install and cache requirements and then start scraping.
+    command: bash -c "pip install -r requirements.txt && cd rentals && scrapy crawl rentals"
+    
